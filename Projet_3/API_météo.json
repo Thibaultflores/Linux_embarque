@@ -1,0 +1,74 @@
+[
+    {
+        "id": "92d3209864cd17e7",
+        "type": "tab",
+        "label": "API Metéo",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b5aa067a34d4d8f9",
+        "type": "inject",
+        "z": "92d3209864cd17e7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "66301bfeccb416f6"
+            ]
+        ]
+    },
+    {
+        "id": "efe542bfea6a4269",
+        "type": "debug",
+        "z": "92d3209864cd17e7",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "66301bfeccb416f6",
+        "type": "openweathermap",
+        "z": "92d3209864cd17e7",
+        "name": "",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "Paris",
+        "country": "france",
+        "language": "fr",
+        "credentials": {},
+        "x": 250,
+        "y": 80,
+        "wires": [
+            [
+                "efe542bfea6a4269"
+            ]
+        ]
+    }
+]

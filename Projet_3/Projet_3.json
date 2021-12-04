@@ -1,0 +1,373 @@
+[
+    {
+        "id": "92d3209864cd17e7",
+        "type": "tab",
+        "label": "API Metéo",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4b35c876c97c0b6f",
+        "type": "tab",
+        "label": "Projet_3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "600af990187e72e3",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "3467bfd603e591a9",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "a028f9fc3bd727bd",
+        "type": "ui_group",
+        "name": "Temp",
+        "tab": "600af990187e72e3",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b5aa067a34d4d8f9",
+        "type": "inject",
+        "z": "92d3209864cd17e7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "66301bfeccb416f6"
+            ]
+        ]
+    },
+    {
+        "id": "efe542bfea6a4269",
+        "type": "debug",
+        "z": "92d3209864cd17e7",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "66301bfeccb416f6",
+        "type": "openweathermap",
+        "z": "92d3209864cd17e7",
+        "name": "",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "Paris",
+        "country": "france",
+        "language": "fr",
+        "x": 250,
+        "y": 80,
+        "wires": [
+            [
+                "efe542bfea6a4269",
+                "403a681e30e626bf"
+            ]
+        ]
+    },
+    {
+        "id": "a0b75bd7e1eefdf8",
+        "type": "ui_text",
+        "z": "92d3209864cd17e7",
+        "group": "a028f9fc3bd727bd",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "C",
+        "label": "Température à Paris",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 430,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "403a681e30e626bf",
+        "type": "change",
+        "z": "92d3209864cd17e7",
+        "name": "Weather",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.tempc",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 210,
+        "y": 220,
+        "wires": [
+            [
+                "a0b75bd7e1eefdf8"
+            ]
+        ]
+    },
+    {
+        "id": "81963ef02c648305",
+        "type": "inject",
+        "z": "4b35c876c97c0b6f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 120,
+        "wires": [
+            [
+                "ba577a3bd3368980"
+            ]
+        ]
+    },
+    {
+        "id": "ba577a3bd3368980",
+        "type": "exec",
+        "z": "4b35c876c97c0b6f",
+        "command": "vcgencmd measure_temp",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "RaspberryCPU",
+        "x": 330,
+        "y": 220,
+        "wires": [
+            [
+                "a4dec6aa01b186bb"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "dfd86cabf27b22f2",
+        "type": "ui_gauge",
+        "z": "4b35c876c97c0b6f",
+        "name": "",
+        "group": "a028f9fc3bd727bd",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temp CPU",
+        "label": "C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 650,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "a4dec6aa01b186bb",
+        "type": "change",
+        "z": "4b35c876c97c0b6f",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "temp=",
+                "fromt": "str",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "'c",
+                "fromt": "str",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 220,
+        "wires": [
+            [
+                "dfd86cabf27b22f2",
+                "70fe7ccfd6d98989"
+            ]
+        ]
+    },
+    {
+        "id": "70fe7ccfd6d98989",
+        "type": "debug",
+        "z": "4b35c876c97c0b6f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 320,
+        "wires": []
+    }
+]
